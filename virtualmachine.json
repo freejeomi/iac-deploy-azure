@@ -5,7 +5,7 @@
     "_generator": {
       "name": "bicep",
       "version": "0.36.177.2456",
-      "templateHash": "6786401249020795200"
+      "templateHash": "5234405756994607579"
     }
   },
   "parameters": {
@@ -36,7 +36,7 @@
       "apiVersion": "2024-03-01",
       "name": "[format('{0}/{1}', 'ijnetwork1', 'ijnetwork1subnet1')]",
       "properties": {
-        "addressPrefix": "10.0.0/24"
+        "addressPrefix": "10.0.0.0/24"
       },
       "dependsOn": [
         "[resourceId('Microsoft.Network/virtualNetworks', 'ijnetwork1')]"
@@ -48,7 +48,7 @@
       "name": "ijpublicip1",
       "location": "[resourceGroup().location]",
       "properties": {
-        "publicIPAllocationMethod": "Dynamic"
+        "publicIPAllocationMethod": "Static"
       },
       "sku": {
         "name": "Standard"
@@ -119,6 +119,19 @@
       "dependsOn": [
         "[resourceId('Microsoft.Network/networkInterfaces', 'ijnic1')]"
       ]
+    },
+    {
+      "type": "Microsoft.Storage/storageAccounts",
+      "apiVersion": "2023-05-01",
+      "name": "ijstorageaccount30072025",
+      "location": "[resourceGroup().location]",
+      "sku": {
+        "name": "Standard_LRS"
+      },
+      "kind": "StorageV2",
+      "properties": {
+        "supportsHttpsTrafficOnly": true
+      }
     }
   ]
 }
