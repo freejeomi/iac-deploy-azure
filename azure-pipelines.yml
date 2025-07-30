@@ -7,7 +7,6 @@ pool:
 
 steps:
 - task: AzureResourceManagerTemplateDeployment@3
-- task: AzureResourceManagerTemplateDeployment@3
   inputs:
     deploymentScope: 'Resource Group'
     azureResourceManagerConnection: 'MyAzureSubscription'
