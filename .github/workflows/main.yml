@@ -6,3 +6,19 @@ jobs:
     steps:
     - name: Checkout code
       uses: actions/checkout@main
+
+    - name: Azure login
+      uses: azure/login@v1
+      with:
+        creds: ${{ secrets.AZURE_CREDENTIALS }}
+  # deploy bicep
+    - name: Deploy
+      uses: azure/arm-deploy@v1
+      with:
+        subscriptionId: c859ea9e-b72e-4211-b896-8f1e9260c5da
+        resourceGroupName: azureBiceps
+        template: virtualmachine.bicep
+        parameters: 'adminPassword=${{ secrets.ADMIN_PASS }}'
+        failOnStdErr: false
+        scope: 'resourceGroup'
+
