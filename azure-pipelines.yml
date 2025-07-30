@@ -20,5 +20,6 @@ steps:
     location: 'ce'
     templateLocation: 'Linked artifact'
     csmFile: '$(System.DefaultWorkingDirectory)/virtualmachine.bicep'
+    csmParametersFile: '$(System.DefaultWorkingDirectory)/virtualmachine.test.bicepparam'
     overrideParameters: '-adminPassword $(AdminPassword)'
     deploymentMode: 'Incremental'
