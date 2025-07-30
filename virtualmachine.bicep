@@ -90,3 +90,15 @@ resource virtualMachine 'Microsoft.Compute/virtualMachines@2024-03-01' = {
     }
   }
 }
+
+resource newStorageAccount 'Microsoft.Storage/storageAccounts@2023-05-01' = {
+  name: 'ijstorageaccount123'
+  location: resourceGroup().location
+  sku: {
+    name: 'Standard_LRS'
+  }
+  kind: 'StorageV2'
+  properties: {
+    supportsHttpsTrafficOnly: true
+  }
+}
