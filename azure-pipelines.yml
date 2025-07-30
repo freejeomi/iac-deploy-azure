@@ -15,6 +15,6 @@ steps:
     resourceGroupName: 'azureBiceps'
     location: 'ce'
     templateLocation: 'Linked artifact'
-    csmFile: 'virtualMachine.bicep'
+    csmFile: 'virtualmachine.bicep'
     csmParametersFile: '-adminPassword $(AdminPassword)'
     deploymentMode: 'Incremental'
