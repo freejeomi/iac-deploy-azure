@@ -5,7 +5,11 @@ trigger:
 pool:
   vmImage: ubuntu-latest
 
+
+
 steps:
+
+- checkout: self
 - task: AzureResourceManagerTemplateDeployment@3
   inputs:
     deploymentScope: 'Resource Group'
@@ -15,6 +19,6 @@ steps:
     resourceGroupName: 'azureBiceps'
     location: 'ce'
     templateLocation: 'Linked artifact'
-    csmFile: 'virtualmachine.bicep'
-    csmParametersFile: '-adminPassword $(AdminPassword)'
+    csmFile: '$(System.DefaultWorkingDirectory)/virtualmachine.bicep'
+    overrideParameters: '-adminPassword $(AdminPassword)'
     deploymentMode: 'Incremental'
