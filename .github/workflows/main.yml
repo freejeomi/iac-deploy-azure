@@ -20,5 +20,5 @@ jobs:
         template: virtualmachine.bicep
         parameters: 'adminPassword=${{ secrets.ADMIN_PASS }}'
         failOnStdErr: false
-        scope: 'resourceGroup'
+        scope: 'resourcegroup'
 
